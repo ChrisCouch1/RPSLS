@@ -46,6 +46,7 @@
     <Compile Include="ComputerPlayer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Gestures.cs" />
+    <Compile Include="HumanPlayer.cs" />
     <Compile Include="Lizard.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="Player.cs" />

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPSLS_Proj
 {
-    public class ComputerPlayer
+    public class ComputerPlayer : Player
     {
         public Random random = new Random();
         public string playerName;
-        public ComputerPlayer()
+        public ComputerPlayer(string playerName)
         {
             playerName = "Computer Player";
         }
 
-        public int CompMakeAChoice(int computerInput)
+        public override int MakeAChoice(int computerInput)
         {
             computerInput = random.Next(1,6);
             return computerInput;

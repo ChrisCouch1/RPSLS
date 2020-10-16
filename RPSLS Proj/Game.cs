@@ -42,18 +42,19 @@ namespace RPSLS_Proj
             if(userInput == "1")
             {
                 Console.WriteLine("What would you like to name Player One?");
-                Player playerOne = new Player(Console.ReadLine());
+                Player playerOne = new HumanPlayer(Console.ReadLine());
                 Console.WriteLine("Player Two will be the computer.");
-                ComputerPlayer playerTwo = new ComputerPlayer();
+                ComputerPlayer playerTwo = new ComputerPlayer("ComputerPlayer");
+
 
 
             }
             if(userInput == "2")
             {
                 Console.WriteLine("What would you like to name Player One?");
-                Player playerOne = new Player(Console.ReadLine());
+                Player playerOne = new HumanPlayer(Console.ReadLine());
                 Console.WriteLine("What would you like to name Player Two?");
-                Player playerTwo = new Player(Console.ReadLine());
+                Player playerTwo = new HumanPlayer(Console.ReadLine());
             }
             else
             {
@@ -62,6 +63,10 @@ namespace RPSLS_Proj
             }
 
             
+        }
+        public void playGame()
+        {
+
         }
 
         
