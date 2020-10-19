@@ -10,6 +10,15 @@ namespace RPSLS_Proj
     {
         static void Main(string[] args)
         {
+            Game game = new Game();
+            game.DisplayGameRules();
+
+            game.InstantiateGestures();
+
+            game.InstantiatePlayers();
+
+            game.playGame();
+            
 
         }
     }

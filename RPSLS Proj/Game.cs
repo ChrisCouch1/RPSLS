@@ -33,7 +33,7 @@ namespace RPSLS_Proj
         public void DisplayGameRules()
         {
             Console.WriteLine("Welcome to a riveting game 'Rock Paper Scissors Lizard Spock!' \nThe rules are simple: choose a move" +
-            "from Rock, Paper, Scissors, Lizard, and Spock.\nRock crushes lizard, lizard poisons Spock,\nSpock smashes scissors, scissors decapitate lizard,\nLizard eats paper," +
+            " from Rock, Paper, Scissors, Lizard, and Spock.\nRock crushes lizard, lizard poisons Spock,\nSpock smashes scissors, scissors decapitate lizard,\nLizard eats paper, " +
             "paper disproves Spock,\nSpock vaporizes rock. And as it always has, rock crushes scissors.\n-- Dr. Sheldon Cooper (The Big Bang Theory S02E08)");
             Console.WriteLine("The first player to 3 points wins the game.");
         }
@@ -43,25 +43,23 @@ namespace RPSLS_Proj
             string userInput = Console.ReadLine();
             if(userInput == "1")
             {
-                Console.WriteLine("What would you like to name Player One?");
-                playerOne = new HumanPlayer(Console.ReadLine());
-                Console.WriteLine("Player Two will be the computer.");
+                
+                playerOne = new HumanPlayer("Player One");
                 playerTwo = new ComputerPlayer("ComputerPlayer");
-
+                
 
 
             }
-            if(userInput == "2")
+            else if(userInput == "2")
             {
-                Console.WriteLine("What would you like to name Player One?");
-                playerOne = new HumanPlayer(Console.ReadLine());
-                Console.WriteLine("What would you like to name Player Two?");
-                playerTwo = new HumanPlayer(Console.ReadLine());
+               
+                playerOne = new HumanPlayer("Player One");
+                playerTwo = new HumanPlayer("Player Two");
                 
             }
             else
             {
-                Console.WriteLine("I'm sorry, but that was not a valid entry");
+                Console.WriteLine("I'm sorry, but that was not a valid entry. Try again");
                 InstantiatePlayers();
             }
             
@@ -69,14 +67,163 @@ namespace RPSLS_Proj
         }
         public void playGame()
         {
-            Console.WriteLine("Player One, please select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-            playerOne.MakeAChoice(Convert.ToInt32(Console.ReadLine()));
-            switch (Console.ReadLine())
+            string playerOneInput;
+            string playerTwoInput;
+            do
             {
-                case 1:
-                Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-
+                Console.WriteLine("Player One, please select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+                playerOne.MakeAChoice(Convert.ToInt32(playerOneInput = Console.ReadLine()));
+                switch (playerOneInput)
+                {
+                    case "0":
+                        Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        if (playerOneInput == playerTwoInput)
+                        {
+                            Console.WriteLine("TIED! No points");
+                        }
+                        else if (playerTwoInput == "1")
+                        {
+                            Console.WriteLine("Paper covers Rock, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        else if (playerTwoInput == "2")
+                        {
+                            Console.WriteLine("Rock smashes Scissors, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "3")
+                        {
+                            Console.WriteLine("Rock smashes Lizard, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "4")
+                        {
+                            Console.WriteLine("Spock vaporizes Rock, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        break;
+                    case "1":
+                        Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        if (playerOneInput == playerTwoInput)
+                        {
+                            Console.WriteLine("TIED! No points");
+                        }
+                        else if (playerTwoInput == "0")
+                        {
+                            Console.WriteLine("Paper covers Rock, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "2")
+                        {
+                            Console.WriteLine("Scissors cuts Paper, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        else if (playerTwoInput == "3")
+                        {
+                            Console.WriteLine("Lizard eats Paper, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        else if (playerTwoInput == "4")
+                        {
+                            Console.WriteLine("Paper disproves Spock, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        break;
+                    case "2":
+                        Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        if (playerOneInput == playerTwoInput)
+                        {
+                            Console.WriteLine("TIED! No points");
+                        }
+                        else if (playerTwoInput == "0")
+                        {
+                            Console.WriteLine("Rock smashes Scissors, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        else if (playerTwoInput == "1")
+                        {
+                            Console.WriteLine("Scissors cut Paper, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "3")
+                        {
+                            Console.WriteLine("Scissors decapitate Lizard, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "4")
+                        {
+                            Console.WriteLine("Spock smashes Scissors, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        break;
+                    case "3":
+                        Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        if (playerOneInput == playerTwoInput)
+                        {
+                            Console.WriteLine("TIED! No points");
+                        }
+                        else if (playerTwoInput == "0")
+                        {
+                            Console.WriteLine("Rock smashes Lizard, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        else if (playerTwoInput == "1")
+                        {
+                            Console.WriteLine("Lizard eats Paper, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "2")
+                        {
+                            Console.WriteLine("Scissors decapitate Lizard, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        else if (playerTwoInput == "4")
+                        {
+                            Console.WriteLine("Lizard poisons Spock, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        break;
+                    case "4":
+                        Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        if (playerOneInput == playerTwoInput)
+                        {
+                            Console.WriteLine("TIED! No points");
+                        }
+                        else if (playerTwoInput == "0")
+                        {
+                            Console.WriteLine("Spock vaporizes Rock, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "1")
+                        {
+                            Console.WriteLine("Paper disproves Spock, Player Two wins a point!");
+                            playerTwoScore++;
+                        }
+                        else if (playerTwoInput == "2")
+                        {
+                            Console.WriteLine("Spock smashes Scissors, Player One wins a point!");
+                            playerOneScore++;
+                        }
+                        else if (playerTwoInput == "3")
+                        {
+                            Console.WriteLine("Lizard poisons Spock, Player One wins a point!");
+                            playerTwoScore++;
+                        }
+                        break;
+                }
             }
+            while (playerOneScore == 3 || playerTwoScore == 3);
+            Console.WriteLine("Player One score is " + playerOneScore + ", and Player Two score is " + playerTwoScore);
+            Console.ReadLine();
+
+
+
+            
 
 
         }
