@@ -17,7 +17,7 @@ namespace RPSLS_Proj
 
         public override int MakeAChoice(int computerInput)
         {
-            computerInput = random.Next(1,6);
+            computerInput = random.Next(5);
             return computerInput;
 
         }

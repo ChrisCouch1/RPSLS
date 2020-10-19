@@ -13,6 +13,8 @@ namespace RPSLS_Proj
         public int playerOneScore = 0;
         public int playerTwoScore = 0;
         public List<Gestures> listOfGestures = new List<Gestures>();
+        Player playerOne;
+        Player playerTwo;
 
         public void InstantiateGestures()
         {
@@ -30,9 +32,9 @@ namespace RPSLS_Proj
 
         public void DisplayGameRules()
         {
-            Console.WriteLine("Welcome to a riveting game 'Rock Paper Scissors Lizard Spock!' \nThe rules are simple: choose a" +
-                "gesture from Rock, Paper, Scissors, Lizard, and Spock. \nRock beats Scissors and Lizard" +
-                "\nPaper beats Rock and Spock\nScissors beats Paper and Lizard\nLizzard beats Paper and Spock\nSpock beats Rock and Scissors");
+            Console.WriteLine("Welcome to a riveting game 'Rock Paper Scissors Lizard Spock!' \nThe rules are simple: choose a move" +
+            "from Rock, Paper, Scissors, Lizard, and Spock.\nRock crushes lizard, lizard poisons Spock,\nSpock smashes scissors, scissors decapitate lizard,\nLizard eats paper," +
+            "paper disproves Spock,\nSpock vaporizes rock. And as it always has, rock crushes scissors.\n-- Dr. Sheldon Cooper (The Big Bang Theory S02E08)");
             Console.WriteLine("The first player to 3 points wins the game.");
         }
         public void InstantiatePlayers()
@@ -42,9 +44,9 @@ namespace RPSLS_Proj
             if(userInput == "1")
             {
                 Console.WriteLine("What would you like to name Player One?");
-                Player playerOne = new HumanPlayer(Console.ReadLine());
+                playerOne = new HumanPlayer(Console.ReadLine());
                 Console.WriteLine("Player Two will be the computer.");
-                ComputerPlayer playerTwo = new ComputerPlayer("ComputerPlayer");
+                playerTwo = new ComputerPlayer("ComputerPlayer");
 
 
 
@@ -52,20 +54,30 @@ namespace RPSLS_Proj
             if(userInput == "2")
             {
                 Console.WriteLine("What would you like to name Player One?");
-                Player playerOne = new HumanPlayer(Console.ReadLine());
+                playerOne = new HumanPlayer(Console.ReadLine());
                 Console.WriteLine("What would you like to name Player Two?");
-                Player playerTwo = new HumanPlayer(Console.ReadLine());
+                playerTwo = new HumanPlayer(Console.ReadLine());
+                
             }
             else
             {
                 Console.WriteLine("I'm sorry, but that was not a valid entry");
                 InstantiatePlayers();
             }
-
+            
             
         }
         public void playGame()
         {
+            Console.WriteLine("Player One, please select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+            playerOne.MakeAChoice(Convert.ToInt32(Console.ReadLine()));
+            switch (Console.ReadLine())
+            {
+                case 1:
+                Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+
+            }
+
 
         }
 
