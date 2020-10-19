@@ -10,8 +10,7 @@ namespace RPSLS_Proj
     public class Game
     {
         
-        public int playerOneScore = 0;
-        public int playerTwoScore = 0;
+        
         public List<Gestures> listOfGestures = new List<Gestures>();
         Player playerOne;
         Player playerTwo;
@@ -66,18 +65,19 @@ namespace RPSLS_Proj
             
         }
         public void playGame()
-        {
+        {   int playerOneScore = 0;
+            int playerTwoScore = 0;
             string playerOneInput;
             string playerTwoInput;
             do
             {
                 Console.WriteLine("Player One, please select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-                playerOne.MakeAChoice(Convert.ToInt32(playerOneInput = Console.ReadLine()));
+                playerOneInput = Console.ReadLine();
                 switch (playerOneInput)
                 {
                     case "0":
                         Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        playerTwoInput = playerTwo.MakeAChoice();
                         if (playerOneInput == playerTwoInput)
                         {
                             Console.WriteLine("TIED! No points");
@@ -105,7 +105,7 @@ namespace RPSLS_Proj
                         break;
                     case "1":
                         Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        playerTwoInput = playerTwo.MakeAChoice();
                         if (playerOneInput == playerTwoInput)
                         {
                             Console.WriteLine("TIED! No points");
@@ -133,7 +133,7 @@ namespace RPSLS_Proj
                         break;
                     case "2":
                         Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        playerTwoInput = playerTwo.MakeAChoice(); 
                         if (playerOneInput == playerTwoInput)
                         {
                             Console.WriteLine("TIED! No points");
@@ -161,7 +161,7 @@ namespace RPSLS_Proj
                         break;
                     case "3":
                         Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        playerTwoInput = playerTwo.MakeAChoice();
                         if (playerOneInput == playerTwoInput)
                         {
                             Console.WriteLine("TIED! No points");
@@ -189,7 +189,7 @@ namespace RPSLS_Proj
                         break;
                     case "4":
                         Console.WriteLine("Player Two will now select...\nPlease select your move:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-                        playerTwo.MakeAChoice(Convert.ToInt32(playerTwoInput = Console.ReadLine()));
+                        playerTwoInput = playerTwo.MakeAChoice();
                         if (playerOneInput == playerTwoInput)
                         {
                             Console.WriteLine("TIED! No points");
@@ -217,8 +217,8 @@ namespace RPSLS_Proj
                         break;
                 }
             }
-            while (playerOneScore == 3 || playerTwoScore == 3);
-            Console.WriteLine("Player One score is " + playerOneScore + ", and Player Two score is " + playerTwoScore);
+            while (playerOneScore <= 2 && playerTwoScore <= 2);
+            Console.WriteLine("GAME OVER\nPlayer One score is " + playerOneScore + ", and Player Two score is " + playerTwoScore);
             Console.ReadLine();
 
 

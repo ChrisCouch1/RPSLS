@@ -15,9 +15,10 @@ namespace RPSLS_Proj
             playerName = "Computer Player";
         }
 
-        public override int MakeAChoice(int computerInput)
+        public override string MakeAChoice()
         {
-            computerInput = random.Next(5);
+            string computerInput;
+            computerInput = Convert.ToString(random.Next(5));
             return computerInput;
 
         }

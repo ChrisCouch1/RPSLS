@@ -9,8 +9,7 @@ namespace RPSLS_Proj
     public abstract class Player
     {
              
-        public abstract int MakeAChoice(int input);
-        
+        public abstract string MakeAChoice();    
             
         
 

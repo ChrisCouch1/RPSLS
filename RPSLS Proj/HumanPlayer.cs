@@ -16,12 +16,12 @@ namespace RPSLS_Proj
             playerName = Console.ReadLine();
         }
 
-         public override int MakeAChoice(int convertedUserInput)
+         public override string MakeAChoice()
          {
-           Console.WriteLine("What will be your next move?\nChoose from:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
-           string userInput = Console.ReadLine();
-           convertedUserInput = Convert.ToInt32(userInput);
-           return convertedUserInput;
+            string userInput;
+            Console.WriteLine("What will be your next move?\nChoose from:\n0 for Rock\n1 for Paper\n2 for Scissors\n3 for Lizard\n4 for Spock");
+            userInput = Console.ReadLine();
+            return userInput;
 
          }
 
